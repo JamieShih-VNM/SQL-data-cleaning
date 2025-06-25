@@ -82,6 +82,31 @@ Result:
 |MENDIE ALEXANDRESCU|
 |FEY KLOSS|
 
+### 3.2 Age
+#### 3.2.1 Fit incorrect age
+```SQL
+UPDATE club_member_info_cleaned
+ SET age = CAST(SUBSTR(age,1,2) AS Integer)
+ WHERE age > 100 AND age <> '';
+```
 
- 
+#### 3.2.2 Replace Null into Average value
+```SQL
+UPDATE club_member_info_cleaned
+ SET age = 42
+ WHERE age = '';
+```
+Result:
+ |age|
+|---|
+|40|
+|46|
+|46|
+|35|
+|38|
+|44|
+|41|
+|51|
+|46|
+|52|
 
